@@ -1,0 +1,454 @@
+{
+  "hero": {
+    "name": "Gayatri Swain",
+    "roles": [
+      "Frontend Developer",
+      "Creative Coder",
+      "Interactive Designer"
+    ],
+    "description": "Crafting digital experiences that blend sleek design with clean, efficient code. Focused on building interactive, responsive interfaces that leave a lasting impression.",
+    "backgroundImage": "/images/5651995.webp",
+    "primaryButtonText": "View Projects",
+    "primaryButtonLink": "#projects",
+    "secondaryButtonText": "Contact",
+    "secondaryButtonLink": "#contact",
+    "social": {
+      "github": "https://github.com",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com",
+      "instagram": "https://instagram.com"
+    }
+  },
+  "about": {
+    "name": "Gayatri Swain",
+    "role": "Front End Developer",
+    "bio": "Crafting exceptional digital experiences with 2+ years of expertise in scalable architecture and modern technologies. Passionate about building solutions that make a difference.",
+    "image": "/images/image_1.jpg",
+    "location": "New Delhi, 110071",
+    "availability": "Open to Work",
+    "experience": "2+ Years Experience",
+    "primaryButtonText": "Let's Connect",
+    "primaryButtonLink": "mailto:gayatrisain2003@gmail.com",
+    "secondaryButtonText": "Download Resume",
+    "secondaryButtonLink": "#",
+    "highlights": [
+      {
+        "label": "Years Experience",
+        "value": "2+",
+        "icon": "Calendar",
+        "accent": "emerald"
+      },
+      {
+        "label": "Projects Completed",
+        "value": "15+",
+        "icon": "Briefcase",
+        "accent": "violet"
+      },
+      {
+        "label": "Certifications",
+        "value": "5",
+        "icon": "GraduationCap",
+        "accent": "rose"
+      }
+    ]
+  },
+  "skillsHeader": {
+    "badgeText": "✨ EXPERTISE",
+    "titleMain": "How I Can Contribute &",
+    "titleHighlight": "My Key Skills",
+    "description": "A comprehensive skill set spanning frontend development, backend systems, and project management to deliver exceptional digital experiences."
+  },
+  "skillsFooter": {
+    "description": "Passionate about continuous learning and staying current with the latest technologies",
+    "points": [
+      "Performance & Optimization",
+      "Responsive & Adaptive Design",
+      "UI/UX Implementation",
+      "Team Leadership"
+    ]
+  },
+  "skills": [
+    {
+      "title": "JavaScript",
+      "icon": "/images/JavaScript.png"
+    },
+    {
+      "title": "React",
+      "icon": "/images/react.png"
+    },
+    {
+      "title": "NextJs",
+      "icon": "/images/NextJs.png"
+    },
+    {
+      "title": "Tailwind CSS",
+      "icon": "/images/Tailwind_CSS_Logo.svg.png"
+    },
+    {
+      "title": "WordPress",
+      "icon": "/images/wordpress.png"
+    },
+    {
+      "title": "Three.Js",
+      "icon": "/images/three.js.png"
+    },
+    {
+      "title": "Material UI",
+      "icon": "/images/php.png"
+    },
+    {
+      "title": "Bootstrap",
+      "icon": "/images/bootstrap.png"
+    },
+    {
+      "title": "Shopify",
+      "icon": "/images/shopify.png"
+    },
+    {
+      "title": "GitHub",
+      "icon": "/images/github_PNG66.png"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "BizMaster - Business Consulting",
+      "description": "A modern business consulting website built with React and Bootstrap. It features a fully responsive layout, dynamic page transitions, and essential corporate sections including services, portfolio, and contact forms.",
+      "longDescription": "BizMaster is a professional business consulting React.js template designed for corporate firms and agencies. It features a modern, responsive design built with React and Bootstrap, offering sections for services, case studies, team members, and testimonials. The project highlights dynamic routing, component reusability, and a polished user interface suitable for establishing a strong online brand presence.",
+      "image": "/images/project.webp",
+      "mainimage": "/images/project.webp",
+      "technologies": [
+        "React",
+        "Bootstrap",
+        "JavaScript",
+        "CSS3",
+        "FontAwesome"
+      ],
+      "githubUrl": "https://github.com/gayatriswain/bizmaster",
+      "liveUrl": "https://bizmasterr.netlify.app/",
+      "featured": true,
+      "gallery": [
+        "/images/bizmaster1.png",
+        "/images/bizmaster2.png",
+        "/images/bizmaster3.png",
+        "/images/bizmaster4.png",
+        "/images/bizmaster5.png"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Real Estate Website",
+      "description": "Real Estate Website – Developed a responsive property listing platform using Next.js, React, Tailwind CSS, and JavaScript, featuring dynamic pages, search filters, and optimized performance for a smooth user experience.",
+      "longDescription": "The Real Estate Website is a modern, responsive platform designed to help users browse and explore property listings seamlessly. Built with Next.js, it leverages server-side rendering for enhanced performance and SEO optimization. The platform allows users to search, filter, and view property details dynamically, ensuring a smooth and interactive experience. As the Frontend Developer, I focused on creating an intuitive user interface using React and Tailwind CSS, ensuring consistency and responsiveness across all devices. The layout emphasizes clarity and usability, with well-structured property cards, smooth navigation, and optimized loading times. The project demonstrates strong proficiency in modern frontend development, emphasizing performance, scalability, and user experience. It lays the foundation for integrating additional features like user authentication, favorites management, and interactive maps.",
+      "image": "/images/estate1.png",
+      "mainimage": "/images/realestateproject.jpg",
+      "technologies": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
+      "githubUrl": "https://github.com/gayatriswain/estate-flow",
+      "liveUrl": "https://ownestateflow.netlify.app/",
+      "gallery": [
+        "/images/estate2.png",
+        "/images/estate3.png",
+        "/images/estate4.png",
+        "/images/estate5.png",
+        "/images/estate6.png"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "PHP-Based Website",
+      "description": "A dynamic PHP-based website featuring a secure admin panel that allows administrators to manage website content in real time without modifying code.",
+      "longDescription": "This project is a dynamic website developed using PHP and MySQL, designed with a custom-built admin panel to manage site content efficiently. The admin dashboard enables authorized users to add, edit, update, and delete content through a user-friendly interface, eliminating the need for manual code changes. The system includes secure authentication using PHP sessions to ensure that only authorized users can access administrative features. Content updates are stored in a MySQL database and reflected instantly on the frontend, making the website fully dynamic and easy to maintain. This project demonstrates strong understanding of backend development, database integration, CRUD operations, and basic security practices, while also showcasing clean UI implementation on the frontend.",
+      "image": "/images/rpi-image.png",
+      "mainimage": "/images/rpi-main-image.jpg ",
+      "technologies": [
+        "PHP",
+        "MySQL",
+        "Session-based Login System"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "#",
+      "gallery": [
+        "/images/rpi2.png",
+        "/images/rpi3.png",
+        "/images/rpi4.png"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "WooCommerce E-Commerce Website",
+      "description": "Developed a fully functional WooCommerce e-commerce website with custom product pages, shopping cart, payment gateway integration, and responsive design for a seamless shopping experience.",
+      "longDescription": "A WooCommerce-based WordPress e-commerce website was developed with a focus on usability, responsive design, and an intuitive user experience. The platform features custom product pages, category filters, shopping cart functionality, and secure payment gateway integration. Themes were customized using PHP, HTML, CSS, and JavaScript, with optimizations for performance, SEO, and mobile responsiveness. Key plugins, including WooCommerce extensions, WPML for multilingual support, and caching/optimization tools, were implemented to enhance functionality and site speed. The project demonstrates the creation of scalable, visually appealing, and user-friendly online stores with robust backend capabilities.",
+      "image": "/images/fusiocoat1.png",
+      "mainimage": "/images/Woo-commerceproject.jpg",
+      "technologies": [
+        "CMS",
+        "WooCommerce",
+        "PHP",
+        "JavaScript"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "#",
+      "gallery": [
+        "/images/fusiocoat2.png",
+        "/images/fusiocoat3.png",
+        "/images/fusiocoat4.png",
+        "/images/fusiocoat5.png"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Social Media Dashboard",
+      "description": "A social media analytics dashboard built to track engagement, followers, and performance metrics across platforms. Uses D3.js for data visualization, Vue.js for reactive UI, and Express with PostgreSQL for backend data management.",
+      "longDescription": "Analytics dashboard for social media insights.",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&crop=center",
+      "mainimage": "/images/estate1.png",
+      "technologies": [
+        "Vue.js",
+        "D3.js",
+        "Express",
+        "PostgreSQL"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "#",
+      "gallery": [
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop&crop=center"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Modern Data-Driven Shopify Store",
+      "description": "Designed and developed a complete Shopify store using metafields to manage structured data and deliver dynamic, scalable storefront content.",
+      "longDescription": "This project represents the full development of a Shopify store, including store setup, theme customization, and advanced data handling using Shopify metafields. Metafields were implemented to store and manage additional structured information such as product details, specifications, and custom content sections beyond Shopify’s default fields. The metafields were integrated into the storefront using Liquid templating, allowing dynamic rendering of data across product and collection pages. This approach improved content flexibility, reduced hard-coded values, and enabled easy updates through the Shopify Admin. The store was designed with a responsive, user-centric layout to ensure a consistent experience across all devices. Best practices in Shopify theme development were followed to maintain clean, scalable, and maintainable code, demonstrating strong expertise in both Shopify development and data architecture.",
+      "image": "/images/main-vedikroot.png",
+      "mainimage": "/images/main-image-shopify.png",
+      "technologies": [
+        "Shopify",
+        "Liquid templating",
+        "Metafields",
+        "Shopify API"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "https://www.vedikroots.com/",
+      "gallery": [
+        "/images/vedikroot1.png",
+        "/images/vedikroot2.png",
+        "/images/vedikroot3.png",
+        "/images/vedikroot4.png"
+      ]
+    }
+  ],
+  "projectsHeader": {
+    "badgeText": "🚀 My Work",
+    "title": "Featured Projects",
+    "description": "Here are some of my recent projects that showcase my skills in frontend development, from complex web applications to interactive experiences."
+  },
+  "projectsCta": {
+    "buttonText": "View All Projects on GitHub",
+    "buttonUrl": "https://github.com/yourusername"
+  },
+  "seo": {
+    "title": "Gayatri Swain | Full Stack Developer",
+    "description": "Portfolio of Gayatri Swain, a Full Stack Developer specializing in React, Next.js, and modern web experiences."
+  },
+  "header": {
+    "logoText": "GAYATRI SWAIN",
+    "hireMeUrl": "mailto:gayatrisain2003@gmail.com"
+  },
+  "techStackOrbit": {
+    "titlePrefix": "I'm currently looking to join a",
+    "titleHighlight": "cross-functional team",
+    "description": "that values improving people's lives through accessible design, scalable performance, and continuous innovation.",
+    "row1Icons": [
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+        "label": "Figma"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        "label": "React"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+        "label": "C"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        "label": "Node.js"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+        "label": "Redux"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "label": "JS"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+        "label": "CSS"
+      }
+    ],
+    "row2Icons": [
+      {
+        "url": "/images/adobe-xd-1.svg",
+        "label": "Xd"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+        "label": "Next.js"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original.svg",
+        "label": "Gatsby"
+      },
+      {
+        "url": "/images/Ai.svg",
+        "label": "Ai"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+        "label": "Express"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        "label": "MongoDB"
+      }
+    ],
+    "smallIcons": {
+      "linkedin": "/images/linkedin.png",
+      "ai": "/images/Ai.svg",
+      "react": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      "gatsby": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original.svg",
+      "js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      "code": "/images/code.png",
+      "css": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      "xd": "/images/adobe-xd-1.svg",
+      "figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+    }
+  },
+  "experienceHeader": {
+    "badgeText": "✨ Career Odyssey",
+    "titleMain": "Professional",
+    "titleHighlight": "Journey",
+    "description": "A chronicle of my professional growth, technical expertise, and the impactful solutions I've delivered across the digital landscape."
+  },
+  "experience": [
+    {
+      "company": "Tech Corp",
+      "role": "Frontend Developer",
+      "duration": "2022 - Present",
+      "description": "Developed scalable web applications using React and Next.js."
+    },
+    {
+      "company": "Creative Agency",
+      "role": "Junior Web Developer",
+      "duration": "2021 - 2022",
+      "description": "Built responsive websites using WordPress and Shopify."
+    }
+  ],
+  "collaborationsCta": {
+    "badgeText": "✨ COLLABORATIONS",
+    "titleMain": "Let's Create the",
+    "titleHighlight": "Future Together",
+    "description": "I'm always open to new challenges and opportunities to innovate. Whether you have a groundbreaking idea or a complex problem, let's build something extraordinary.",
+    "primaryButtonText": "Download Resume",
+    "primaryButtonLink": "#",
+    "secondaryButtonText": "Contact Me",
+    "secondaryButtonLink": "#contact"
+  },
+  "contact": {
+    "email": "gayatrisain2003@gmail.com",
+    "phone": "9289432640",
+    "location": "New Delhi, 110071",
+    "description": "Reach out to me directly or use the form below to get in touch.",
+    "socialLinks": [
+      { "platform": "GitHub", "url": "#", "iconUrl": "" },
+      { "platform": "LinkedIn", "url": "#", "iconUrl": "" },
+      { "platform": "Twitter", "url": "#", "iconUrl": "" }
+    ]
+  },
+  "footer": {
+    "brandName": "GAYATRI SWAIN",
+    "description": "Designing and developing modern, high-performance, and responsive web experiences.",
+    "expertise": [
+      "Web Development",
+      "WordPress Development",
+      "Shopify Development"
+    ],
+    "usefulLinks": [
+      { "label": "About", "url": "#about" },
+      { "label": "Experience", "url": "#experience" },
+      { "label": "Portfolio", "url": "#projects" },
+      { "label": "Contact", "url": "#contact" }
+    ],
+    "copyrightText": "Designed & Developed by Gayatri Swain"
+  },
+  "popup": {
+    "title": "Lets Connect!",
+    "description": "I m currently open to new opportunities. Check out my resume or drop me an email.",
+    "buttonText": "Get in Touch",
+    "buttonUrl": "#contact"
+  },
+  "skillCategories": [
+    {
+      "title": "Languages",
+      "subtitle": "Core languages I work with",
+      "icon": "Code2",
+      "skills": [
+        {
+          "name": "JavaScript",
+          "icon": "/uploads/upload-1783357828419-268094112.png"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+        },
+        {
+          "name": "HTML5",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+        },
+        {
+          "name": "CSS3",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+        }
+      ]
+    },
+    {
+      "title": "Frontend",
+      "subtitle": "Libraries & frameworks",
+      "icon": "Layout",
+      "skills": [
+        {
+          "name": "React",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        },
+        {
+          "name": "Next.js",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+        }
+      ]
+    },
+    {
+      "title": "Backend",
+      "subtitle": "Runtime & backend technologies",
+      "icon": "Server",
+      "skills": [
+        {
+          "name": "Node.js",
+          "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        }
+      ]
+    }
+  ]
+}

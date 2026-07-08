@@ -1,0 +1,49 @@
+.fancy-type-text {
+  @apply text-4xl md:text-6xl lg:text-7xl font-semibold;
+  background-image: linear-gradient(90deg, #f472b6, #c084fc, #60a5fa, #f472b6);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+ 
+  position: relative;
+}
+
+/* Blinking vertical bar cursor */
+.fancy-type-text::after {
+  content: '❘';
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+  color: #fff;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+}
