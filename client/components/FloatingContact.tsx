@@ -37,9 +37,9 @@ const FloatingContact = () => {
           whileTap={{ scale: 0.9 }}
         >
           {/* Tooltip */}
-          <span className="absolute left-14 bg-white text-slate-900 px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none border border-slate-100">
+          <span className="absolute left-14 bg-black text-slate-900 px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none border border-slate-100">
             Call me!
-            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-white border-l border-b border-slate-100 rotate-45"></span>
+            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-black border-l border-b border-slate-100 rotate-45"></span>
           </span>
 
           <Phone size={18} className="relative z-10" />
@@ -61,9 +61,9 @@ const FloatingContact = () => {
           whileTap={{ scale: 0.9 }}
         >
           {/* Tooltip */}
-          <span className="absolute left-14 bg-white text-slate-900 px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none border border-slate-100">
+          <span className="absolute left-14 bg-black text-slate-900 px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none border border-slate-100">
             Email me!
-            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-white border-l border-b border-slate-100 rotate-45"></span>
+            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-black border-l border-b border-slate-100 rotate-45"></span>
           </span>
 
           <Mail size={18} className="relative z-10" />
@@ -90,9 +90,9 @@ const FloatingContact = () => {
           <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-75 animate-ping group-hover:animate-none"></span>
           
           {/* Tooltip */}
-          <span className="absolute left-14 bg-white text-slate-900 px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none border border-slate-100">
+          <span className="absolute left-14 bg-black text-slate-900 px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none border border-slate-100">
             Chat with me!
-            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-white border-l border-b border-slate-100 rotate-45"></span>
+            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-black border-l border-b border-slate-100 rotate-45"></span>
           </span>
 
           <FaWhatsapp size={22} className="relative z-10" />

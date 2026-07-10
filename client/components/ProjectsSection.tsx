@@ -164,7 +164,7 @@ export default function ProjectsSection() {
             <a href={content.projectsCta?.buttonUrl || "#"} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
-                className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-4 h-auto"
+                className="bg-black hover:bg-neutral-800 text-white border-none font-bold shadow-lg transition-all text-lg px-8 py-4 h-auto"
               >
                 <Github className="mr-2 h-5 w-5" />
                 {content.projectsCta?.buttonText || "View All Projects on GitHub"}

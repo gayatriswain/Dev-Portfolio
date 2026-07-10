@@ -369,7 +369,7 @@ export default function ContactSection() {
             );
           }}
           fallback={
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-red-900 to-slate-900" />
           }
         >
           <Scene />
@@ -381,7 +381,7 @@ export default function ContactSection() {
         <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Contact Form */}
           <motion.div variants={formVariants}>
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 animate-glow">
+            <Card className="bg-black/10 backdrop-blur-lg border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 animate-glow">
               <CardContent className="p-8">
                 <AnimatePresence mode="wait">
                   {!isSubmitted ? (
@@ -397,7 +397,7 @@ export default function ContactSection() {
                         variants={itemVariants}
                         className="text-center mb-8"
                       >
-                        <h2 className="text-2xl font-bold text-white mb-2 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        <h2 className="text-2xl font-bold text-white mb-2 bg-gradient-brand bg-clip-text text-transparent">
                           Send a Message
                         </h2>
                         <p className="text-slate-300">
@@ -425,7 +425,7 @@ export default function ContactSection() {
                             onChange={handleInputChange}
                             onFocus={() => handleFocus("name")}
                             onBlur={handleBlur}
-                            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-cyan-400/20 backdrop-blur-sm transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-cyan-400/25"
+                            className="bg-black/10 border-white/20 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-cyan-400/20 backdrop-blur-sm transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-cyan-400/25"
                             placeholder="Enter your name"
                             required
                           />
@@ -450,7 +450,7 @@ export default function ContactSection() {
                             onChange={handleInputChange}
                             onFocus={() => handleFocus("email")}
                             onBlur={handleBlur}
-                            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-cyan-400/20 backdrop-blur-sm transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-cyan-400/25"
+                            className="bg-black/10 border-white/20 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-cyan-400/20 backdrop-blur-sm transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-cyan-400/25"
                             placeholder="your@email.com"
                             required
                           />
@@ -475,7 +475,7 @@ export default function ContactSection() {
                             onFocus={() => handleFocus("message")}
                             onBlur={handleBlur}
                             rows={4}
-                            className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-cyan-400/20 backdrop-blur-sm resize-none transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-cyan-400/25"
+                            className="bg-black/10 border-white/20 text-white placeholder:text-slate-400 focus:border-cyan-400 focus:ring-cyan-400/20 backdrop-blur-sm resize-none transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-cyan-400/25"
                             placeholder="Tell me about your project..."
                             required
                           />
@@ -486,7 +486,7 @@ export default function ContactSection() {
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-black hover:bg-neutral-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <AnimatePresence mode="wait">
                             {isSubmitting ? (
@@ -563,7 +563,7 @@ export default function ContactSection() {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-shimmer"
+                  className="text-transparent bg-clip-text bg-gradient-brand animate-shimmer"
                 >
                   {" "}
                   Touch
@@ -599,7 +599,7 @@ export default function ContactSection() {
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
-                    className="p-3 bg-white/10 rounded-lg backdrop-blur-sm group-hover:bg-cyan-400/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-cyan-400/25"
+                    className="p-3 bg-black/10 rounded-lg backdrop-blur-sm group-hover:bg-cyan-400/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-cyan-400/25"
                   >
                     <item.icon className="w-6 h-6" />
                   </motion.div>
@@ -633,10 +633,10 @@ export default function ContactSection() {
                   whileHover={{
                     scale: 1.2,
                     rotate: 360,
-                    backgroundColor: "rgba(6, 182, 212, 0.2)",
+                    backgroundColor: "rgba(251, 113, 133, 0.2)",
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-3 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-gradient-to-r hover:from-cyan-400/20 hover:to-purple-400/20 transition-all duration-300 text-slate-300 hover:text-white group hover:shadow-lg hover:shadow-cyan-400/25 flex items-center justify-center w-12 h-12"
+                  className="p-3 bg-black/10 rounded-lg backdrop-blur-sm hover:bg-gradient-to-r hover:from-rose-400/20 hover:to-pink-400/20 transition-all duration-300 text-slate-300 hover:text-white group hover:shadow-lg hover:shadow-rose-400/25 flex items-center justify-center w-12 h-12"
                   aria-label={link.platform}
                   target="_blank"
                   rel="noopener noreferrer"

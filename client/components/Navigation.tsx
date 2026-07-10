@@ -39,7 +39,7 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#05000a]/60 backdrop-blur-xl border-b border-purple-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+          ? "bg-[#05000a]/60 backdrop-blur-xl border-b border-red-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
           : "bg-transparent"
       }`}
     >
@@ -73,11 +73,11 @@ export default function Navigation() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="relative px-6 py-2.5 bg-gradient-brand rounded-full font-bold text-white shadow-lg shadow-primary/20 overflow-hidden group"
+              className="relative px-6 py-2.5 bg-white rounded-full font-bold text-black hover:bg-gray-200 transition-colors shadow-lg overflow-hidden group"
             >
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span className="relative flex items-center gap-2">
-                <Sparkles className="w-4 h-4 animate-pulse" />
+                <Sparkles className="w-4 h-4 text-black animate-pulse" />
                 Hire Me
               </span>
             </motion.button>
@@ -116,9 +116,9 @@ export default function Navigation() {
               <div className="px-3 py-4">
                 <button
                   onClick={scrollToContact}
-                  className="w-full py-4 bg-gradient-brand text-white rounded-2xl font-bold text-lg shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform"
+                  className="w-full py-4 bg-white text-black hover:bg-gray-200 rounded-2xl font-bold text-lg shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all"
                 >
-                  <Sparkles className="w-6 h-6" />
+                  <Sparkles className="w-6 h-6 text-black" />
                   Hire Me
                 </button>
               </div>

@@ -29,14 +29,14 @@ export default function AnimatedSkillsSection() {
           <CursorFollowingFace />
           {content.skillsHeader?.badgeText && (
             <div className="mb-4 md:mb-6">
-              <span className="inline-block px-4 py-2 bg-[#1c142c]/50 backdrop-blur-sm rounded-full text-sm font-medium text-purple-400 border border-purple-500/20">
+              <span className="inline-block px-4 py-2 bg-[#1c142c]/50 backdrop-blur-sm rounded-full text-sm font-medium text-red-400 border border-red-500/20">
                 {content.skillsHeader.badgeText}
               </span>
             </div>
           )}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
             {content.skillsHeader?.titleMain || "How I Can Contribute &"}
-            <span className="block bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-brand bg-clip-text text-transparent mt-2">
               {content.skillsHeader?.titleHighlight || "My Key Skills"}
             </span>
           </h2>
@@ -48,9 +48,9 @@ export default function AnimatedSkillsSection() {
         {/* Space Light Effect Between Header and Cards */}
         <div className="relative w-full h-px -mt-4 md:-mt-8 mb-4 md:mb-10 flex justify-center pointer-events-none z-0">
           {/* Smooth, blended glowing orb with heavy blur */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[250px] bg-purple-600/30 rounded-full blur-[100px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[250px] bg-red-600/30 rounded-full blur-[100px]"></div>
           {/* Core inner highlight for realistic light falloff */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-purple-400/40 rounded-full blur-[80px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-red-400/40 rounded-full blur-[80px]"></div>
         </div>
 
         {/* Categorized Skills Layout */}
@@ -58,11 +58,11 @@ export default function AnimatedSkillsSection() {
           {skillCategories.map((category, idx) => (
             <div
               key={idx}
-              className="flex flex-col lg:flex-row items-center p-6 bg-[#0a0514]/80 backdrop-blur-md border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 rounded-2xl gap-8 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+              className="flex flex-col lg:flex-row items-center p-6 bg-[#0a0514]/80 backdrop-blur-md border border-red-500/10 hover:border-red-500/30 transition-all duration-300 rounded-2xl gap-8 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
             >
               {/* Left Category Info */}
               <div className="flex items-center gap-5 w-full lg:w-[280px] flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-purple-500/10 border border-purple-500/20 text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-red-500/10 border border-red-500/20 text-red-400 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
                   {(() => {
                     const IconComponent = LucideIcons[category.icon as keyof typeof LucideIcons] as React.ElementType || LucideIcons.Code2;
                     return <IconComponent size={26} strokeWidth={1.5} />;
@@ -70,7 +70,7 @@ export default function AnimatedSkillsSection() {
                 </div>
                 <div className="flex flex-col text-left">
                   <h3 className="text-white font-bold text-lg tracking-wide">{category.title}</h3>
-                  <p className="text-gray-500 text-[13px] font-medium leading-snug mt-0.5">{category.subtitle}</p>
+                  <p className="text-gray-400 text-[13px] font-medium leading-snug mt-0.5">{category.subtitle}</p>
                 </div>
               </div>
 
@@ -78,7 +78,7 @@ export default function AnimatedSkillsSection() {
               <div className="flex flex-nowrap items-start gap-4 lg:gap-5 w-full overflow-x-auto hide-scrollbar py-2" style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}>
                 {category.skills.map((skill, skillIdx) => (
                   <div key={skillIdx} className="flex flex-col items-center gap-2 group cursor-pointer min-w-[60px] flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-[#150e24] flex items-center justify-center border border-purple-500/10 group-hover:border-purple-400/50 group-hover:bg-[#1c142c] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_5px_15px_rgba(168,85,247,0.2)]">
+                    <div className="w-12 h-12 rounded-full bg-[#150e24] flex items-center justify-center border border-red-500/10 group-hover:border-red-400/50 group-hover:bg-[#1c142c] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_5px_15px_rgba(168,85,247,0.2)]">
                       <img
                         src={skill.icon}
                         alt={skill.name}
@@ -88,7 +88,7 @@ export default function AnimatedSkillsSection() {
                         }}
                       />
                     </div>
-                    <span className="text-[10px] text-gray-500 font-medium group-hover:text-purple-300 transition-colors duration-300 text-center leading-tight">
+                    <span className="text-[10px] text-gray-400 font-medium group-hover:text-red-300 transition-colors duration-300 text-center leading-tight">
                       {skill.name}
                     </span>
                   </div>
@@ -112,7 +112,7 @@ export default function AnimatedSkillsSection() {
             ]).map((skill) => (
               <span
                 key={skill}
-                className="px-4 py-2 bg-[#150e24]/80 backdrop-blur-xl rounded-full text-sm font-medium text-gray-300 border border-purple-500/20 hover:border-purple-400/50 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"
+                className="px-4 py-2 bg-[#150e24]/80 backdrop-blur-xl rounded-full text-sm font-medium text-gray-300 border border-red-500/20 hover:border-red-400/50 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"
               >
                 {skill}
               </span>

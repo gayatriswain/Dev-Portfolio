@@ -18,49 +18,42 @@
     --popover: 224 25% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 262 83% 58%;
+    --primary: 349 75% 49%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 262 30% 20%;
-    --secondary-foreground: 262 83% 68%;
+    --secondary-foreground: 349 75% 75%;
 
     --muted: 232 23% 11%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 180 100% 50%;
-    --accent-foreground: 220 26% 6%;
+    --accent: 349 75% 49%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 232 23% 15%;
     --input: 232 23% 15%;
-    --ring: 262 83% 58%;
+    --ring: 349 75% 49%;
 
     --radius: 0.75rem;
 
-    /* Custom brand colors */
-    --gradient-start: 262 83% 58%;
-    --gradient-mid: 300 100% 70%;
-    --gradient-end: 180 100% 50%;
+    /* Custom brand colors - Red Theme */
+    --gradient-start: 349 75% 49%;
+    --gradient-mid: 355 85% 65%;
+    --gradient-end: 340 100% 75%;
     --surface: 224 25% 10%;
     --surface-bright: 232 23% 18%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 349 75% 49%;
   }
 
   .light {
@@ -73,16 +66,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 26% 6%;
 
-    --primary: 262 83% 58%;
+    --primary: 349 75% 49%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 262 30% 95%;
-    --secondary-foreground: 262 83% 58%;
+    --secondary: 349 30% 95%;
+    --secondary-foreground: 349 75% 49%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 180 100% 50%;
+    --accent: 349 75% 49%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
@@ -90,12 +83,12 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 262 83% 58%;
+    --ring: 349 75% 49%;
 
-    /* Custom brand colors for light mode */
-    --gradient-start: 262 83% 58%;
-    --gradient-mid: 300 100% 70%;
-    --gradient-end: 180 100% 50%;
+    /* Custom brand colors for light mode - Red Theme */
+    --gradient-start: 349 75% 49%;
+    --gradient-mid: 355 85% 65%;
+    --gradient-end: 340 100% 75%;
     --surface: 0 0% 98%;
     --surface-bright: 0 0% 100%;
     --sidebar-background: 0 0% 98%;
@@ -105,7 +98,7 @@
     --sidebar-accent: 240 5% 96%;
     --sidebar-accent-foreground: 240 6% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 349 75% 49%;
   }
 }
 

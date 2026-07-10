@@ -41,13 +41,13 @@ export default function TechStackOrbit() {
     <div className="relative w-full overflow-hidden bg-transparent pt-16 pb-12 flex flex-col items-center font-sans">
       
       {/* Background ambient lighting */}
-      <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[150px] pointer-events-none"></div>
 
       {/* Header text */}
       <div className="text-center z-20 mb-16 px-4">
         <h2 className="text-[28px] md:text-[40px] text-white font-bold mb-4 tracking-tight">
-          {orbitData?.titlePrefix || "I'm currently looking to join a"} <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-400">{orbitData?.titleHighlight || "cross-functional team"}</span>
+          {orbitData?.titlePrefix || "I'm currently looking to join a"} <span className="text-transparent bg-clip-text bg-gradient-brand">{orbitData?.titleHighlight || "cross-functional team"}</span>
         </h2>
         <p className="text-gray-400 md:text-[20px] font-light max-w-2xl mx-auto">
           {orbitData?.description || "that values improving people's lives through accessible design, scalable performance, and continuous innovation."}
@@ -62,7 +62,7 @@ export default function TechStackOrbit() {
           <div className="flex gap-5 md:gap-8 justify-center">
             {row1Icons.map((item, i) => (
               <div key={`row1-${i}`} className="flex flex-col items-center gap-3" style={{ animation: `float-${(i % 5) + 1} 3s ease-in-out infinite`, animationDelay: `${i * 0.2}s` }}>
-                <div className="w-14 h-14 md:w-[72px] md:h-[72px] bg-gradient-to-b from-[#2a2438] to-[#1c1825] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.15)] border border-purple-500/20 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:border-purple-400/50 hover:scale-110 transition-all duration-300">
+                <div className="w-14 h-14 md:w-[72px] md:h-[72px] bg-gradient-to-b from-[#2a2438] to-[#1c1825] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.15)] border border-red-500/20 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:border-red-400/50 hover:scale-110 transition-all duration-300">
                   <img src={item.url} alt={item.label} className="w-[55%] h-[55%] object-contain drop-shadow-md" />
                 </div>
                 
@@ -73,7 +73,7 @@ export default function TechStackOrbit() {
           <div className="flex gap-5 md:gap-8 justify-center">
             {row2Icons.map((item, i) => (
               <div key={`row2-${i}`} className="flex flex-col items-center gap-3 relative z-20" style={{ animation: `float-${(i % 5) + 1} 4s ease-in-out infinite`, animationDelay: `${i * 0.2 + 1}s` }}>
-                <div className="w-14 h-14 md:w-[72px] md:h-[72px] bg-gradient-to-b from-[#2a2438] to-[#1c1825] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.15)] border border-purple-500/20 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:border-purple-400/50 hover:scale-110 transition-all duration-300">
+                <div className="w-14 h-14 md:w-[72px] md:h-[72px] bg-gradient-to-b from-[#2a2438] to-[#1c1825] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.15)] border border-red-500/20 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:border-red-400/50 hover:scale-110 transition-all duration-300">
                   <img src={item.url} alt={item.label} className="w-[55%] h-[55%] object-contain drop-shadow-md" />
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function TechStackOrbit() {
         {/* The Connection Lines area */}
         <div className="absolute top-[148px] left-1/2 -translate-x-1/2 w-[592px] h-[321px] pointer-events-none z-10 hidden md:block">
            <svg className="w-full h-full" viewBox="0 0 592 321" preserveAspectRatio="none">
-             {/* Top of purple sphere target for lines: x=296, y=321 */}
+             {/* Top of red sphere target for lines: x=296, y=321 */}
              <path d="M 36 0 C 36 150, 296 200, 296 321" stroke="#7e22ce" strokeWidth="1.5" strokeOpacity="0.4" fill="none" className="animate-[pulse_3s_ease-in-out_infinite]" />
              <path d="M 140 0 C 140 150, 296 200, 296 321" stroke="#7e22ce" strokeWidth="1.5" strokeOpacity="0.4" fill="none" className="animate-[pulse_3s_ease-in-out_infinite]" style={{ animationDelay: '0.5s' }} />
              <path d="M 244 0 C 244 150, 296 200, 296 321" stroke="#7e22ce" strokeWidth="1.5" strokeOpacity="0.4" fill="none" className="animate-[pulse_3s_ease-in-out_infinite]" style={{ animationDelay: '1s' }} />
@@ -98,23 +98,14 @@ export default function TechStackOrbit() {
         <div className="relative w-full h-[230px] sm:h-[325px] md:h-[487px] lg:h-[650px] mt-10 z-0 flex justify-center">
           <div className="absolute top-0 w-[1250px] min-w-[1250px] h-[650px] overflow-hidden flex justify-center scale-[0.35] sm:scale-50 md:scale-75 lg:scale-100 origin-top">
           
-          {/* Main glowing sphere in center */}
-          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] bg-[#6223b2] rounded-full blur-[60px] opacity-70 pointer-events-none z-10"></div>
-          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] bg-[#492283] rounded-full shadow-[0_0_80px_rgba(110,40,210,0.9)] z-20 flex items-center justify-center">
-            {/* Hourglass-like white logo */}
-            <svg width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 18H48" stroke="white" strokeWidth="5" strokeLinecap="round" className="drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"/>
-              <path d="M48 18L18 30L45 42" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"/>
-              <path d="M12 42H48" stroke="white" strokeWidth="5" strokeLinecap="round" className="drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"/>
-            </svg>
-          </div>
+          {/* Main glowing sphere in center removed as requested */}
 
           {/* Masked wrapper for rings so they fade into the distance at the top but remain faintly visible */}
           <div className="absolute inset-0 pointer-events-none z-0" style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 10%, rgba(0,0,0,1) 60%)', WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 10%, rgba(0,0,0,1) 60%)' }}>
             
             {/* Ring 1 */}
             <div className="absolute top-1/2 left-1/2 w-[950px] h-[950px]" style={{ transform: 'translate(-50%, -50%) rotateX(70deg)', transformStyle: 'preserve-3d' }}>
-              <div className="w-full h-full rounded-[50%] border border-purple-400/20" style={{ animation: 'spin 25s linear infinite', transformStyle: 'preserve-3d' }}>
+              <div className="w-full h-full rounded-[50%] border border-red-400/20" style={{ animation: 'spin 25s linear infinite', transformStyle: 'preserve-3d' }}>
                  <div className="absolute left-[-12px] top-[calc(50%-12px)] w-6 h-6" style={{ animation: 'spin 25s linear infinite reverse', transformStyle: 'preserve-3d' }}>
                    <div className="w-full h-full opacity-90 flex items-center justify-center" style={{ transform: 'rotateX(-70deg)' }}>
                       <img src={smallIcons.linkedin} alt="icon" className="w-full h-full grayscale"/>
@@ -135,7 +126,7 @@ export default function TechStackOrbit() {
             
             {/* Ring 2 */}
             <div className="absolute top-1/2 left-1/2 w-[1050px] h-[1050px]" style={{ transform: 'translate(-50%, -50%) rotateX(70deg)', transformStyle: 'preserve-3d' }}>
-              <div className="w-full h-full rounded-[50%] border border-purple-400/20" style={{ animation: 'spin 35s linear infinite reverse', transformStyle: 'preserve-3d' }}>
+              <div className="w-full h-full rounded-[50%] border border-red-400/20" style={{ animation: 'spin 35s linear infinite reverse', transformStyle: 'preserve-3d' }}>
                  <div className="absolute left-[-14px] top-[calc(50%-14px)] w-7 h-7" style={{ animation: 'spin 35s linear infinite', transformStyle: 'preserve-3d' }}>
                    <div className="w-full h-full opacity-90 flex items-center justify-center" style={{ transform: 'rotateX(-70deg)' }}>
                       <img src={smallIcons.gatsby} alt="icon" className="w-full h-full grayscale"/>
@@ -151,7 +142,7 @@ export default function TechStackOrbit() {
 
             {/* Ring 3 */}
             <div className="absolute top-1/2 left-1/2 w-[1150px] h-[1150px]" style={{ transform: 'translate(-50%, -50%) rotateX(70deg)', transformStyle: 'preserve-3d' }}>
-              <div className="w-full h-full rounded-[50%] border border-purple-400/20" style={{ animation: 'spin 45s linear infinite', transformStyle: 'preserve-3d' }}>
+              <div className="w-full h-full rounded-[50%] border border-red-400/20" style={{ animation: 'spin 45s linear infinite', transformStyle: 'preserve-3d' }}>
                  <div className="absolute right-[15%] bottom-[15%] w-6 h-6" style={{ animation: 'spin 45s linear infinite reverse', transformStyle: 'preserve-3d' }}>
                    <div className="w-full h-full opacity-90 flex items-center justify-center" style={{ transform: 'rotateX(-70deg)' }}>
                       <img src={smallIcons.code} alt="icon" className="w-full h-full grayscale"/>
@@ -172,7 +163,7 @@ export default function TechStackOrbit() {
 
             {/* Ring 4 */}
             <div className="absolute top-1/2 left-1/2 w-[1250px] h-[1250px]" style={{ transform: 'translate(-50%, -50%) rotateX(70deg)', transformStyle: 'preserve-3d' }}>
-              <div className="w-full h-full rounded-[50%] border border-purple-400/20" style={{ animation: 'spin 55s linear infinite reverse', transformStyle: 'preserve-3d' }}>
+              <div className="w-full h-full rounded-[50%] border border-red-400/20" style={{ animation: 'spin 55s linear infinite reverse', transformStyle: 'preserve-3d' }}>
                  <div className="absolute left-[20%] bottom-[8%] w-6 h-6" style={{ animation: 'spin 55s linear infinite', transformStyle: 'preserve-3d' }}>
                    <div className="w-full h-full opacity-90 flex items-center justify-center" style={{ transform: 'rotateX(-70deg)' }}>
                       <img src={smallIcons.ai} alt="icon" className="w-full h-full grayscale"/>

@@ -41,7 +41,7 @@ export default function AttractivePopup() {
               {/* Close Button */}
               <button 
                 onClick={togglePopup}
-                className="absolute top-5 right-5 z-20 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors cursor-pointer"
+                className="absolute top-5 right-5 z-20 p-2 bg-black/10 hover:bg-black/20 rounded-full transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4 text-white" />
               </button>
@@ -85,14 +85,14 @@ export default function AttractivePopup() {
                 >
                   <button
                     onClick={scrollToContact}
-                    className="w-full py-3 bg-gradient-brand rounded-xl font-bold text-base text-white shadow-lg shadow-primary/30 hover:scale-[1.02] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3 bg-white hover:bg-neutral-800 text-black rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-5 h-5" />
                     {popupData?.buttonText || "Get in Touch"}
                   </button>
                   <a
                     href={`tel:${contactData?.phone || '9289432640'}`}
-                    className="w-full py-3 bg-white/5 border border-white/10 hover:border-primary/50 rounded-xl font-bold text-base text-foreground transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3 bg-black/5 border border-white/10 hover:border-primary/50 rounded-xl font-bold text-base text-foreground transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Phone className="w-5 h-5 text-primary" />
                     Call Me Now

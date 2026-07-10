@@ -64,11 +64,11 @@ const TimelineItem = ({
 
           {/* Meta Badges */}
           <div className={`flex flex-wrap items-center gap-3 mb-6 ${index % 2 === 0 ? "" : "md:justify-end"} relative z-10`}>
-            <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 px-4 py-1.5 rounded-full border border-white/10 shadow-sm">
+            <div className="flex items-center gap-2 backdrop-blur-md bg-black/5 px-4 py-1.5 rounded-full border border-white/10 shadow-sm">
               <MapPin className="w-3.5 h-3.5 text-primary" />
               <span className="text-xs font-medium text-muted-foreground">{location}</span>
             </div>
-            <div className="flex items-center gap-1.5 backdrop-blur-md bg-white/5 px-4 py-1.5 rounded-full border border-white/10 shadow-sm">
+            <div className="flex items-center gap-1.5 backdrop-blur-md bg-black/5 px-4 py-1.5 rounded-full border border-white/10 shadow-sm">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
@@ -261,7 +261,7 @@ export default function AnimatedTimelineSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-primary-foreground/80 text-sm font-bold tracking-[0.2em] uppercase mb-10 shadow-inner"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/5 border border-white/10 text-primary-foreground/80 text-sm font-bold tracking-[0.2em] uppercase mb-10 shadow-inner"
               >
                 <Sparkles className="w-4 h-4 text-primary animate-spin-slow" />
                 {content.collaborationsCta?.badgeText?.replace('✨ ', '') || "Collaborations"}
@@ -317,7 +317,7 @@ export default function AnimatedTimelineSection() {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group/btn2 relative px-10 py-5 bg-white/5 border border-white/10 hover:border-primary/50 text-foreground rounded-2xl font-bold text-xl backdrop-blur-xl transition-all duration-300"
+                    className="group/btn2 relative px-10 py-5 bg-black/5 border border-white/10 hover:border-primary/50 text-foreground rounded-2xl font-bold text-xl backdrop-blur-xl transition-all duration-300"
                   >
                     <span className="relative z-10 flex items-center gap-3">
                       {content.collaborationsCta?.secondaryButtonText || "Contact Me"}

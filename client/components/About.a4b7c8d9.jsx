@@ -43,13 +43,10 @@ export default function Index() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:6rem_6rem] opacity-[0.02]"></div>
       
       {/* Animated Floating Elements */}
-      <div className="absolute top-1/3 left-1/5 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-violet-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/3 right-1/5 w-96 h-96 bg-gradient-to-r from-violet-500/8 to-rose-500/8 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="absolute top-1/3 left-1/5 w-72 h-72 bg-gradient-to-r from-red-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/3 right-1/5 w-96 h-96 bg-gradient-to-r from-pink-500/8 to-rose-500/8 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
 
-      {/* Additional floating particles */}
-      <div className="absolute top-1/4 left-3/4 w-2 h-2 bg-emerald-400/40 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
-      <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-violet-400/50 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
-      <div className="absolute top-2/3 right-1/3 w-1.5 h-1.5 bg-blue-400/40 rounded-full animate-bounce" style={{animationDelay: '5s'}}></div>
+      {/* Additional floating particles removed for cleaner look */}
 
       {/* Hero Section */}
       <section className="relative container mx-auto px-6 pt-12 pb-6 md:pt-32 md:pb-16">
@@ -62,10 +59,10 @@ export default function Index() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative group" style={{animationDuration: '4s'}}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-400/20 to-violet-400/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-700 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-400/20 via-pink-400/20 to-rose-400/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-700 animate-pulse"></div>
               <div className="relative w-72 md:w-80 lg:w-96 aspect-[3/4] rounded-3xl bg-gradient-to-br from-gray-800 to-gray-900 p-2 shadow-2xl border border-gray-700/50 hover:scale-[1.02] transition-transform duration-500">
                 <div className="w-full h-full rounded-2xl bg-gradient-to-br from-gray-900 to-black flex items-center justify-center relative overflow-hidden border border-gray-800/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-violet-900/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-rose-900/20"></div>
                   <img
       src={about.image} 
       alt={about.name}
@@ -73,12 +70,6 @@ export default function Index() {
     />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-emerald-400 to-emerald-500 w-16 h-16 rounded-2xl border-4 border-black shadow-2xl flex items-center justify-center animate-bounce">
-                <div className="w-4 h-4 bg-white rounded-full animate-pulse"></div>
-              </div>
-              <div className="absolute -top-6 -left-6 bg-gradient-to-r from-amber-400 to-orange-400 w-12 h-12 rounded-xl flex items-center justify-center shadow-xl animate-spin" style={{animationDuration: '8s'}}>
-                <Sparkles className="w-6 h-6 text-white" />
               </div>
             </motion.div>
 
@@ -91,7 +82,7 @@ export default function Index() {
             >
               <div className="space-y-4">
                 <div>
-                  <Badge className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium">
+                  <Badge variant="outline" className="bg-black/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium">
                     <Zap className="w-4 h-4 mr-2 inline" />
                     {about.availability}
                   </Badge>
@@ -116,7 +107,7 @@ export default function Index() {
                     wrapper="span"
                     speed={50}
                     repeat={Infinity}
-                    className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+                    className="text-transparent bg-clip-text bg-gradient-brand"
                   />
                 </h2>
               </div>
@@ -126,9 +117,9 @@ export default function Index() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Button size="lg" className="bg-white !text-black hover:bg-gray-200 text-base font-semibold px-8 py-6 h-auto shadow-xl transition-all duration-300" asChild>
-                  <a href={about.primaryButtonLink || "#contact"} className="!text-black">
-                    <Mail className="w-5 h-5 mr-2 !text-black" />
+                <Button size="lg" className="bg-black !text-white hover:bg-neutral-800 text-base font-semibold px-8 py-6 h-auto shadow-xl transition-all duration-300" asChild>
+                  <a href={about.primaryButtonLink || "#contact"} className="!text-white">
+                    <Mail className="w-5 h-5 mr-2 !text-white" />
                     {about.primaryButtonText || "Let's Connect"}
                   </a>
                 </Button>
