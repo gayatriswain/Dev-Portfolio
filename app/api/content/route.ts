@@ -39,6 +39,7 @@ export async function POST(request: Request) {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/vnd.github.v3+json",
+          "User-Agent": "Dev-Portfolio-CMS",
         },
       });
 
@@ -55,6 +56,7 @@ export async function POST(request: Request) {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/vnd.github.v3+json",
+          "User-Agent": "Dev-Portfolio-CMS",
         },
         body: JSON.stringify({
           message: "Update content via admin panel",
