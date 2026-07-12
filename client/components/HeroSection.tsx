@@ -57,7 +57,7 @@ export default function HeroSection() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[700px] pointer-events-none z-0">
            <motion.div 
              initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
+             animate={{ opacity: 0.1 }}
              transition={{ duration: 2 }}
              className="w-full h-full bg-[radial-gradient(ellipse_at_top,_#ff0033_0%,_transparent_80%)] blur-[100px]"
            ></motion.div>
