@@ -4,6 +4,8 @@ import path from "path";
 import clientPromise from "../../../lib/mongodb";
 import defaultData from "../../../data/content.json";
 
+const CONTENT_PATH = path.resolve(process.cwd(), "data/content.json");
+
 export async function GET() {
   try {
     if (process.env.MONGODB_URI) {
