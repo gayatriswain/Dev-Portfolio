@@ -1218,6 +1218,11 @@ export default function AdminDashboard() {
                         newExp[index].duration = e.target.value;
                         setLocalContent({...localContent, experience: newExp});
                       }} className="bg-black/20" />
+                      <Input placeholder="Location (e.g. Remote, NY)" value={exp.location || ''} onChange={(e) => {
+                        const newExp = [...localContent.experience];
+                        newExp[index].location = e.target.value;
+                        setLocalContent({...localContent, experience: newExp});
+                      }} className="bg-black/20" />
                     </div>
                     <Textarea placeholder="Description" value={exp.description} onChange={(e) => {
                       const newExp = [...localContent.experience];

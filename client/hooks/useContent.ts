@@ -124,6 +124,7 @@ export interface PortfolioContent {
     company: string;
     role: string;
     duration: string;
+    location?: string;
     description: string;
     achievements?: string[];
   }>;
