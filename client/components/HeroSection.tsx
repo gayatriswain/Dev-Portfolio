@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useContent } from "@/hooks/useContent";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function HeroSection() {
   const { data: content, isLoading } = useContent();
@@ -136,7 +136,7 @@ export default function HeroSection() {
           <Button
             variant="outline"
             size="lg"
-            className="hover:scale-105 transition-transform text-lg px-8 py-6 rounded-full bg-white hover:bg-gray-200 text-black border-none tracking-wider font-bold shadow-lg"
+            className="hover:scale-105 transition-transform text-lg px-8 py-6 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white tracking-wider font-bold shadow-lg"
             asChild
           >
             <a href={hero.secondaryButtonLink || "#contact"}>
@@ -173,26 +173,7 @@ export default function HeroSection() {
                 <FaLinkedin className="w-6 h-6" />
               </a>
             )}
-            {hero.social?.twitter && (
-              <a
-                href={hero.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 rounded-full bg-white text-black hover:bg-gray-200 transition-all duration-300 hover:-translate-y-1 shadow-lg"
-              >
-                <FaTwitter className="w-6 h-6" />
-              </a>
-            )}
-            {hero.social?.instagram && (
-              <a
-                href={hero.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 rounded-full bg-white text-black hover:bg-gray-200 transition-all duration-300 hover:-translate-y-1 shadow-lg"
-              >
-                <FaInstagram className="w-6 h-6" />
-              </a>
-            )}
+
           </div>
         </motion.div>
       </div>

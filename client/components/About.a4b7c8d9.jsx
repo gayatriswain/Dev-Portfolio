@@ -117,9 +117,9 @@ export default function Index() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Button size="lg" className="bg-black !text-white hover:bg-neutral-800 text-base font-semibold px-8 py-6 h-auto shadow-xl transition-all duration-300" asChild>
-                  <a href={about.primaryButtonLink || "#contact"} className="!text-white">
-                    <Mail className="w-5 h-5 mr-2 !text-white" />
+                <Button size="lg" className="bg-white !text-black hover:bg-gray-200 text-base font-semibold px-8 py-6 h-auto shadow-xl transition-all duration-300" asChild>
+                  <a href={about.primaryButtonLink || "#contact"} className="!text-black flex items-center">
+                    <Mail className="w-5 h-5 mr-2 !text-black" />
                     {about.primaryButtonText || "Let's Connect"}
                   </a>
                 </Button>

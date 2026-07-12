@@ -34,7 +34,10 @@ import ContactSection from "@/components/ContactSection";
 
 const FooterSection = () => {
   const currentYear = new Date().getFullYear();
-  const { data: content } = useContent();
+  const { data: content, isLoading } = useContent();
+  
+  if (isLoading || !content) return null;
+
   const footerData = content?.footer;
   const contactData = content?.contact;
   
@@ -123,9 +126,7 @@ export default function Index() {
       <AnimatedTimelineSection />
       <ProjectsSection/>
       <ContactSection/>
-      
       <FooterSection />
-      <AttractivePopup />
     </div>
   );
 }

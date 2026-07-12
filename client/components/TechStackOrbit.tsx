@@ -98,7 +98,16 @@ export default function TechStackOrbit() {
         <div className="relative w-full h-[230px] sm:h-[325px] md:h-[487px] lg:h-[650px] mt-10 z-0 flex justify-center">
           <div className="absolute top-0 w-[1250px] min-w-[1250px] h-[650px] overflow-hidden flex justify-center scale-[0.35] sm:scale-50 md:scale-75 lg:scale-100 origin-top">
           
-          {/* Main glowing sphere in center removed as requested */}
+          {/* Main glowing sphere in center */}
+          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] bg-[#ff0033] rounded-full blur-[70px] opacity-100 pointer-events-none z-10"></div>
+          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] bg-[#cc0029] rounded-full shadow-[0_0_100px_rgba(255,0,51,1)] z-20 flex items-center justify-center">
+            {/* Hourglass-like white logo */}
+            <svg width="70" height="70" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 18H48" stroke="white" strokeWidth="5" strokeLinecap="round" className="drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"/>
+              <path d="M48 18L18 30L45 42" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"/>
+              <path d="M12 42H48" stroke="white" strokeWidth="5" strokeLinecap="round" className="drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"/>
+            </svg>
+          </div>
 
           {/* Masked wrapper for rings so they fade into the distance at the top but remain faintly visible */}
           <div className="absolute inset-0 pointer-events-none z-0" style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 10%, rgba(0,0,0,1) 60%)', WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 10%, rgba(0,0,0,1) 60%)' }}>

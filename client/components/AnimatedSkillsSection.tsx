@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useContent } from "@/hooks/useContent";
-import TechStackOrbit from "./TechStackOrbit";
+
 import dynamic from "next/dynamic";
 const CursorFollowingFace = dynamic(() => import("./CursorFollowingFace"), { ssr: false });
 import * as LucideIcons from "lucide-react";
@@ -123,7 +123,7 @@ export default function AnimatedSkillsSection() {
 
       {/* Tech Stack Orbit Animation (Full Width) */}
       <div className="w-full mt-24 relative z-10">
-        <TechStackOrbit />
+
       </div>
 
       <style>{`

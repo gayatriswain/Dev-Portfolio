@@ -55,6 +55,8 @@ function AnimatedSphere() {
     >
       <MeshDistortMaterial
         color="#8B5CF6"
+        emissive="#8B5CF6"
+        emissiveIntensity={0.5}
         attach="material"
         distort={0.4}
         speed={2}
@@ -89,19 +91,19 @@ function FloatingShapes() {
       <Box ref={boxRef} args={[0.5, 0.5, 0.5]} position={[2, 2, -3]}>
         <meshStandardMaterial
           color="#06B6D4"
+          emissive="#06B6D4"
+          emissiveIntensity={0.5}
           metalness={0.8}
           roughness={0.3}
-          transparent
-          opacity={0.7}
         />
       </Box>
       <Torus ref={torusRef} args={[0.3, 0.1, 16, 100]} position={[-2, -1, -2]}>
         <meshStandardMaterial
           color="#F59E0B"
+          emissive="#F59E0B"
+          emissiveIntensity={0.5}
           metalness={0.9}
           roughness={0.2}
-          transparent
-          opacity={0.8}
         />
       </Torus>
     </>
@@ -117,7 +119,7 @@ function FloatingText() {
         <meshStandardMaterial
           color="#06B6D4"
           emissive="#06B6D4"
-          emissiveIntensity={0.3}
+          emissiveIntensity={0.8}
           metalness={0.8}
           roughness={0.2}
         />
@@ -167,10 +169,10 @@ function EnhancedParticles() {
       </bufferGeometry>
       <pointsMaterial
         color="#8B5CF6"
-        size={0.015}
+        size={0.03}
         sizeAttenuation={true}
         transparent
-        opacity={0.8}
+        opacity={1}
       />
     </points>
   );
@@ -189,9 +191,6 @@ function Scene() {
       />
       <pointLight position={[-15, -15, -15]} intensity={0.5} />
 
-      <AnimatedSphere />
-      <FloatingShapes />
-      <FloatingText />
       <EnhancedParticles />
       <Stars radius={400} depth={80} count={1500} factor={8} />
 
@@ -265,7 +264,10 @@ export default function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
   
-  const { data: content } = useContent();
+  const { data: content, isLoading } = useContent();
+  
+  if (isLoading || !content) return null;
+
   const contactData = content?.contact;
 
   const handleInputChange = (
@@ -291,12 +293,23 @@ export default function ContactSection() {
       formDataToSend.append("from_name", "Portfolio Contact Form");
       formDataToSend.append("subject", `New Message from ${formData.name}`);
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formDataToSend
-      });
+      // Send to both web3forms and our local API concurrently
+      const [web3Response, localResponse] = await Promise.all([
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formDataToSend
+        }),
+        fetch("/api/messages", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        }).catch(err => {
+          console.error("Failed to save message locally:", err);
+          return { ok: true }; // Don't fail the whole submission if local save fails
+        })
+      ]);
 
-      const data = await response.json();
+      const data = await web3Response.json();
 
       if (data.success) {
         setIsSubmitted(true);
@@ -332,7 +345,7 @@ export default function ContactSection() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-screen  to-slate-900 relative overflow-hidden"
+      className="py-16 md:py-24 to-slate-900 relative overflow-hidden"
     >
       {/* Animated background gradients */}
       <div className="absolute inset-0  animate-shimmer"></div>
@@ -377,7 +390,7 @@ export default function ContactSection() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-6">
+      <div className="relative z-10 flex items-center justify-center p-6">
         <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Contact Form */}
           <motion.div variants={formVariants}>
@@ -486,7 +499,7 @@ export default function ContactSection() {
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-black hover:bg-neutral-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-white hover:bg-slate-200 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <AnimatePresence mode="wait">
                             {isSubmitting ? (

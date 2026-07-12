@@ -22,6 +22,9 @@ const ProjectCard = ({
     >
       {/* Project Image */}
       <div className="relative overflow-hidden bg-gradient-brand/10">
+        <Link href={`/projects/${id}`} className="absolute inset-0 z-10">
+          <span className="sr-only">View {title} details</span>
+        </Link>
         <AspectRatio ratio={16 / 9}>
           <img
             src={mainimage}
@@ -29,11 +32,11 @@ const ProjectCard = ({
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </AspectRatio>
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"></div>
 
         {/* Overlay Actions */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="flex flex-wrap gap-3 justify-center">
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 pointer-events-none">
+          <div className="flex flex-wrap gap-3 justify-center pointer-events-auto">
             <Button
               size="sm"
               variant="secondary"

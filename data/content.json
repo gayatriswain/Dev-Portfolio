@@ -337,20 +337,18 @@
     "badgeText": "✨ Career Odyssey",
     "titleMain": "Professional",
     "titleHighlight": "Journey",
-    "description": "A chronicle of my professional growth, technical expertise, and the impactful solutions I've delivered across the digital landscape."
+    "description": "A chronicle of my professional growth, technical expertise, and the impactful solutions I've delivered across the digital landscape.\n"
   },
   "experience": [
     {
       "company": "Tech Corp",
       "role": "Frontend Developer",
       "duration": "2022 - Present",
-      "description": "Developed scalable web applications using React and Next.js."
-    },
-    {
-      "company": "Creative Agency",
-      "role": "Junior Web Developer",
-      "duration": "2021 - 2022",
-      "description": "Built responsive websites using WordPress and Shopify."
+      "description": "Developed scalable web applications using React and Next.js.",
+      "achievements": [
+        "Developed and customized 20+ websites using WordPress, Shopify, React.js, and Next.js.",
+        "Converted Figma designs into responsive, pixel-perfect user interfaces with a focus on performance and accessibility."
+      ]
     }
   ],
   "collaborationsCta": {
@@ -369,9 +367,21 @@
     "location": "New Delhi, 110071",
     "description": "Reach out to me directly or use the form below to get in touch.",
     "socialLinks": [
-      { "platform": "GitHub", "url": "#", "iconUrl": "" },
-      { "platform": "LinkedIn", "url": "#", "iconUrl": "" },
-      { "platform": "Twitter", "url": "#", "iconUrl": "" }
+      {
+        "platform": "GitHub",
+        "url": "#",
+        "iconUrl": ""
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "#",
+        "iconUrl": ""
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "iconUrl": ""
+      }
     ]
   },
   "footer": {
@@ -383,10 +393,22 @@
       "Shopify Development"
     ],
     "usefulLinks": [
-      { "label": "About", "url": "#about" },
-      { "label": "Experience", "url": "#experience" },
-      { "label": "Portfolio", "url": "#projects" },
-      { "label": "Contact", "url": "#contact" }
+      {
+        "label": "About",
+        "url": "#about"
+      },
+      {
+        "label": "Experience",
+        "url": "#experience"
+      },
+      {
+        "label": "Portfolio",
+        "url": "#projects"
+      },
+      {
+        "label": "Contact",
+        "url": "#contact"
+      }
     ],
     "copyrightText": "Designed & Developed by Gayatri Swain"
   },

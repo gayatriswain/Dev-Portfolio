@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Loader2, Plus, Trash2, Save, LogOut, LayoutDashboard, User, Code, Briefcase, Sparkles } from "lucide-react";
+import { Loader2, Plus, Trash2, Save, LogOut, LayoutDashboard, User, Code, Briefcase, Sparkles, Mail, RefreshCcw } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminDashboard() {
@@ -18,6 +18,29 @@ export default function AdminDashboard() {
   const { data: content, isLoading } = useContent();
   const updateMutation = useUpdateContent();
   const [localContent, setLocalContent] = useState<PortfolioContent | null>(null);
+  const [messages, setMessages] = useState<any[]>([]);
+  const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+
+  const fetchMessages = async () => {
+    setIsLoadingMessages(true);
+    try {
+      const res = await fetch("/api/messages");
+      if (res.ok) {
+        const data = await res.json();
+        setMessages(data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch messages", error);
+    } finally {
+      setIsLoadingMessages(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchMessages();
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (content) {
@@ -123,7 +146,7 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-black text-foreground pb-20">
       <nav className="border-b border-border/20 bg-surface/30 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <LayoutDashboard className="w-6 h-6 text-primary" />
             <span className="font-bold text-xl tracking-tight">Admin CMS</span>
@@ -141,20 +164,61 @@ export default function AdminDashboard() {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 mt-10">
+      <main className="max-w-screen-2xl mx-auto px-6 mt-10">
         <Tabs defaultValue="hero" className="space-y-8">
           <TabsList className="bg-surface/50 border border-white/5 p-1 flex flex-wrap h-auto gap-2">
             <TabsTrigger value="hero" className="flex gap-2"><LayoutDashboard size={16} /> Home</TabsTrigger>
             <TabsTrigger value="about" className="flex gap-2"><User size={16} /> About</TabsTrigger>
             <TabsTrigger value="skills" className="flex gap-2"><Code size={16} /> Skills</TabsTrigger>
-            <TabsTrigger value="orbit" className="flex gap-2"><Code size={16} /> Tech Orbit</TabsTrigger>
             <TabsTrigger value="experience" className="flex gap-2"><Briefcase size={16} /> Experience</TabsTrigger>
             <TabsTrigger value="collaborations" className="flex gap-2"><Sparkles size={16} /> Collaborations</TabsTrigger>
             <TabsTrigger value="projects" className="flex gap-2"><Briefcase size={16} /> Projects</TabsTrigger>
             <TabsTrigger value="contact" className="flex gap-2"><User size={16} /> Contact</TabsTrigger>
             <TabsTrigger value="headerfooter" className="flex gap-2"><LayoutDashboard size={16} /> Header/Footer</TabsTrigger>
             <TabsTrigger value="popup" className="flex gap-2"><LayoutDashboard size={16} /> Popup</TabsTrigger>
+            <TabsTrigger value="messages" className="flex gap-2"><Mail size={16} /> Messages</TabsTrigger>
           </TabsList>
+
+          {/* Messages Tab */}
+          <TabsContent value="messages">
+            <Card className="bg-surface/30 border-border/20">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle>Contact Form Submissions</CardTitle>
+                <Button variant="outline" size="sm" onClick={fetchMessages} disabled={isLoadingMessages}>
+                  {isLoadingMessages ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <RefreshCcw className="w-4 h-4 mr-2" />}
+                  Refresh
+                </Button>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {messages.length === 0 ? (
+                  <div className="text-center py-10 text-muted-foreground">No messages yet.</div>
+                ) : (
+                  <div className="grid gap-4">
+                    {messages.map((msg: any) => (
+                      <Card key={msg.id} className="bg-black/20 border-border/10">
+                        <CardContent className="p-4">
+                          <div className="flex justify-between items-start mb-2">
+                            <div>
+                              <div className="font-medium text-lg">{msg.name}</div>
+                              <div className="text-sm text-primary">
+                                <a href={`mailto:${msg.email}`}>{msg.email}</a>
+                              </div>
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {new Date(msg.date).toLocaleString()}
+                            </div>
+                          </div>
+                          <div className="mt-4 text-muted-foreground whitespace-pre-wrap bg-black/40 p-3 rounded-md border border-white/5">
+                            {msg.message}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
 
           {/* Hero Content */}
           <TabsContent value="hero">
@@ -163,6 +227,30 @@ export default function AdminDashboard() {
                 <CardTitle>Hero Section</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
+                <div className="border-b border-white/10 pb-6 mb-6">
+                  <h3 className="text-lg font-medium mb-4 text-primary">SEO Metadata</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label>Meta Title</Label>
+                      <Input 
+                        value={localContent.seo?.title || ''} 
+                        onChange={(e) => setLocalContent({...localContent, seo: {...(localContent.seo || {title: '', description: ''}), title: e.target.value}} as any)}
+                        className="bg-black/20"
+                        placeholder="e.g. My Portfolio"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Meta Description</Label>
+                      <Input 
+                        value={localContent.seo?.description || ''} 
+                        onChange={(e) => setLocalContent({...localContent, seo: {...(localContent.seo || {title: '', description: ''}), description: e.target.value}} as any)}
+                        className="bg-black/20"
+                        placeholder="e.g. A showcase of my work"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-medium text-primary">Hero Content</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label>Name</Label>
@@ -189,6 +277,18 @@ export default function AdminDashboard() {
                       />
                     </div>
                   </div>
+                </div>
+                <div className="space-y-2">
+                  <Label>Roles (comma separated)</Label>
+                  <Input 
+                    value={localContent.hero.roles?.join(', ') || ''} 
+                    onChange={(e) => {
+                      const rolesArray = e.target.value.split(',');
+                      setLocalContent({...localContent, hero: {...localContent.hero, roles: rolesArray.map(r => r.trim()).filter(Boolean)}});
+                    }}
+                    className="bg-black/20"
+                    placeholder="e.g. Full Stack Developer, UI/UX Designer"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label>Description</Label>
@@ -277,22 +377,7 @@ export default function AdminDashboard() {
                         className="bg-black/20"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label>Twitter URL</Label>
-                      <Input 
-                        value={localContent.hero.social?.twitter || ''} 
-                        onChange={(e) => setLocalContent({...localContent, hero: {...localContent.hero, social: {...localContent.hero.social, twitter: e.target.value}}})}
-                        className="bg-black/20"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Instagram URL</Label>
-                      <Input 
-                        value={localContent.hero.social?.instagram || ''} 
-                        onChange={(e) => setLocalContent({...localContent, hero: {...localContent.hero, social: {...localContent.hero.social, instagram: e.target.value}}})}
-                        className="bg-black/20"
-                      />
-                    </div>
+
                   </div>
                 </div>
               </CardContent>
@@ -1139,19 +1224,37 @@ export default function AdminDashboard() {
                       newExp[index].description = e.target.value;
                       setLocalContent({...localContent, experience: newExp});
                     }} className="bg-black/20" />
-                    <div className="space-y-2">
-                      <Label>Points / Achievements (One per line)</Label>
-                      <Textarea 
-                        placeholder="Enter points here...&#10;Point 1&#10;Point 2" 
-                        value={(exp.achievements || []).join('\n')} 
-                        onChange={(e) => {
-                          const newExp = [...localContent.experience];
-                          newExp[index].achievements = e.target.value.split('\n').filter(p => p.trim() !== '');
-                          setLocalContent({...localContent, experience: newExp});
-                        }} 
-                        className="bg-black/20" 
-                        rows={4}
-                      />
+                    <div className="space-y-3">
+                      <Label>Points / Achievements</Label>
+                      {(exp.achievements || []).map((point, pointIdx) => (
+                        <div key={pointIdx} className="flex gap-2">
+                          <Input 
+                            value={point}
+                            onChange={(e) => {
+                              const newExp = [...localContent.experience];
+                              newExp[index].achievements[pointIdx] = e.target.value;
+                              setLocalContent({...localContent, experience: newExp});
+                            }}
+                            className="bg-black/20"
+                            placeholder={`Point ${pointIdx + 1}`}
+                          />
+                          <Button variant="ghost" size="icon" className="text-rose-500 shrink-0" onClick={() => {
+                            const newExp = [...localContent.experience];
+                            newExp[index].achievements.splice(pointIdx, 1);
+                            setLocalContent({...localContent, experience: newExp});
+                          }}>
+                            <Trash2 size={16} />
+                          </Button>
+                        </div>
+                      ))}
+                      <Button variant="outline" size="sm" className="w-full border-dashed mt-2" onClick={() => {
+                        const newExp = [...localContent.experience];
+                        if (!newExp[index].achievements) newExp[index].achievements = [];
+                        newExp[index].achievements.push('');
+                        setLocalContent({...localContent, experience: newExp});
+                      }}>
+                        <Plus className="w-4 h-4 mr-2" /> Add Point
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -1214,104 +1317,7 @@ export default function AdminDashboard() {
             </Card>
           </TabsContent>
 
-          {/* Tech Stack Orbit Section */}
-          <TabsContent value="orbit">
-            <Card className="bg-surface/30 border-border/20">
-              <CardHeader><CardTitle>Tech Stack Orbit</CardTitle></CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label>Title Prefix</Label>
-                  <Input value={localContent.techStackOrbit?.titlePrefix || ''} onChange={(e) => setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, titlePrefix: e.target.value}})} className="bg-black/20" />
-                </div>
-                <div className="space-y-2">
-                  <Label>Title Highlight</Label>
-                  <Input value={localContent.techStackOrbit?.titleHighlight || ''} onChange={(e) => setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, titleHighlight: e.target.value}})} className="bg-black/20" />
-                </div>
-                <div className="space-y-2">
-                  <Label>Description</Label>
-                  <Textarea value={localContent.techStackOrbit?.description || ''} onChange={(e) => setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, description: e.target.value}})} className="bg-black/20" />
-                </div>
-                <div className="space-y-4 pt-4 border-t border-border/20">
-                  <Label>Row 1 Icons</Label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(localContent.techStackOrbit?.row1Icons || []).map((icon, idx) => (
-                      <div key={`row1-${idx}`} className="flex gap-2 items-center">
-                        <Input value={icon.url} onChange={(e) => {
-                          const newIcons = [...(localContent.techStackOrbit.row1Icons || [])];
-                          newIcons[idx].url = e.target.value;
-                          setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row1Icons: newIcons}});
-                        }} className="bg-black/20" placeholder="Icon URL" />
-                        <Input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, (url) => {
-                          const newIcons = [...(localContent.techStackOrbit.row1Icons || [])];
-                          newIcons[idx].url = url;
-                          setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row1Icons: newIcons}});
-                        })} className="bg-black/20 w-[100px] file:bg-primary file:text-primary-foreground file:border-0 file:rounded-md file:px-2 cursor-pointer text-xs" />
-                        <Button variant="ghost" size="icon" className="text-rose-500" onClick={() => {
-                          const newIcons = [...(localContent.techStackOrbit.row1Icons || [])];
-                          newIcons.splice(idx, 1);
-                          setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row1Icons: newIcons}});
-                        }}><Trash2 size={14}/></Button>
-                      </div>
-                    ))}
-                    <Button variant="outline" className="border-dashed" onClick={() => {
-                      const newIcons = [...(localContent.techStackOrbit?.row1Icons || [])];
-                      newIcons.push({ url: "", label: "New Icon" });
-                      setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row1Icons: newIcons}});
-                    }}><Plus className="mr-2" /> Add</Button>
-                  </div>
-                </div>
-                
-                <div className="space-y-4 pt-4 border-t border-border/20">
-                  <Label>Row 2 Icons</Label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(localContent.techStackOrbit?.row2Icons || []).map((icon, idx) => (
-                      <div key={`row2-${idx}`} className="flex gap-2 items-center">
-                        <Input value={icon.url} onChange={(e) => {
-                          const newIcons = [...(localContent.techStackOrbit.row2Icons || [])];
-                          newIcons[idx].url = e.target.value;
-                          setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row2Icons: newIcons}});
-                        }} className="bg-black/20" placeholder="Icon URL" />
-                        <Input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, (url) => {
-                          const newIcons = [...(localContent.techStackOrbit.row2Icons || [])];
-                          newIcons[idx].url = url;
-                          setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row2Icons: newIcons}});
-                        })} className="bg-black/20 w-[100px] file:bg-primary file:text-primary-foreground file:border-0 file:rounded-md file:px-2 cursor-pointer text-xs" />
-                        <Button variant="ghost" size="icon" className="text-rose-500" onClick={() => {
-                          const newIcons = [...(localContent.techStackOrbit.row2Icons || [])];
-                          newIcons.splice(idx, 1);
-                          setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row2Icons: newIcons}});
-                        }}><Trash2 size={14}/></Button>
-                      </div>
-                    ))}
-                    <Button variant="outline" className="border-dashed" onClick={() => {
-                      const newIcons = [...(localContent.techStackOrbit?.row2Icons || [])];
-                      newIcons.push({ url: "", label: "New Icon" });
-                      setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, row2Icons: newIcons}});
-                    }}><Plus className="mr-2" /> Add</Button>
-                  </div>
-                </div>
 
-                <div className="space-y-4 pt-4 border-t border-border/20">
-                  <Label>Small Icons</Label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {Object.keys(localContent.techStackOrbit?.smallIcons || {}).map((key) => (
-                      <div key={`small-${key}`} className="space-y-1">
-                        <Label className="capitalize text-xs text-muted-foreground">{key}</Label>
-                        <div className="flex gap-1 items-center">
-                          <Input value={(localContent.techStackOrbit.smallIcons as any)[key]} onChange={(e) => {
-                            setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, smallIcons: {...localContent.techStackOrbit.smallIcons, [key]: e.target.value}}});
-                          }} className="bg-black/20 h-8 text-sm" placeholder="Icon URL" />
-                          <Input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, (url) => {
-                            setLocalContent({...localContent, techStackOrbit: {...localContent.techStackOrbit, smallIcons: {...localContent.techStackOrbit.smallIcons, [key]: url}}});
-                          })} className="bg-black/20 w-[80px] h-8 file:bg-primary file:text-primary-foreground file:border-0 file:rounded-md cursor-pointer text-[10px]" />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
         </Tabs>
       </main>
     </div>
