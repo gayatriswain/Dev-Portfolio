@@ -142,7 +142,7 @@ export default function ProjectsSection() {
           {content.projectsHeader?.badgeText && (
             <div className="mb-4">
               <span className="inline-block px-4 py-2 bg-surface/50 backdrop-blur-sm rounded-full text-sm font-medium text-primary border border-border/20">
-                {content.projectsHeader.badgeText}
+                {content.projectsHeader.badgeText.replace(/^[^\w\s]+\s*/, '')}
               </span>
             </div>
           )}

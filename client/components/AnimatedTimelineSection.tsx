@@ -185,8 +185,7 @@ export default function AnimatedTimelineSection() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-6 py-2 bg-primary/5 backdrop-blur-md rounded-full text-sm font-semibold text-primary border border-primary/10 mb-8 shadow-sm"
             >
-              <Sparkles className="w-4 h-4" />
-              <span>{content.experienceHeader.badgeText.replace('✨ ', '').replace('🎯 ', '')}</span>
+              <span>{content.experienceHeader.badgeText.replace(/^[^\w\s]+\s*/, '')}</span>
             </motion.div>
           )}
           
@@ -263,8 +262,7 @@ export default function AnimatedTimelineSection() {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/5 border border-white/10 text-primary-foreground/80 text-sm font-bold tracking-[0.2em] uppercase mb-10 shadow-inner"
               >
-                <Sparkles className="w-4 h-4 text-primary animate-spin-slow" />
-                {content.collaborationsCta?.badgeText?.replace('✨ ', '') || "Collaborations"}
+                {content.collaborationsCta?.badgeText?.replace(/^[^\w\s]+\s*/, '') || "Collaborations"}
               </motion.div>
 
               <motion.h3
