@@ -10,7 +10,7 @@ export async function GET() {
     if (process.env.MONGODB_URI) {
       const client = await clientPromise;
       const db = client.db("portfolio");
-      const content = await db.collection("content").findOne({ _id: "main_content" });
+      const content = await db.collection<any>("content").findOne({ _id: "main_content" });
       
       if (content) {
         // Return without _id
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       const client = await clientPromise;
       const db = client.db("portfolio");
       
-      await db.collection("content").updateOne(
+      await db.collection<any>("content").updateOne(
         { _id: "main_content" },
         { $set: content },
         { upsert: true }
