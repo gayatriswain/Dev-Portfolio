@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
 import path from "path";
 import clientPromise from "../../../lib/mongodb";
-
-const CONTENT_PATH = path.resolve(process.cwd(), "data/content.json");
+import defaultData from "../../../data/content.json";
 
 export async function GET() {
   try {
@@ -19,9 +17,8 @@ export async function GET() {
       }
     }
     
-    // Fallback to local file if no MongoDB URI or document not found
-    const data = await fs.readFile(CONTENT_PATH, "utf-8");
-    return NextResponse.json(JSON.parse(data));
+    // Fallback to local JSON if no MongoDB URI or document not found (database empty)
+    return NextResponse.json(defaultData);
   } catch (error) {
     console.error("Error reading content:", error);
     return NextResponse.json({ error: "Failed to load content" }, { status: 500 });
