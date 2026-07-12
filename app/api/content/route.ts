@@ -19,9 +19,9 @@ export async function GET() {
     
     // Fallback to local JSON if no MongoDB URI or document not found (database empty)
     return NextResponse.json(defaultData);
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error reading content:", error);
-    return NextResponse.json({ error: "Failed to load content" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to load content", details: error.message }, { status: 500 });
   }
 }
 
