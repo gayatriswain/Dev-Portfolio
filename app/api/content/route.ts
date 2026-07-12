@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import fs from "fs/promises";
 import path from "path";
 import clientPromise from "../../../lib/mongodb";
 import defaultData from "../../../data/content.json";
